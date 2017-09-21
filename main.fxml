@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BJMainController">
+   <children>
+      <AnchorPane prefHeight="557.0" prefWidth="837.0" snapToPixel="false" style="-fx-background-color: #38D61F;">
+         <children>
+            <FlowPane fx:id="dealersRow" alignment="CENTER_LEFT" layoutX="122.0" layoutY="91.0" prefHeight="161.0" prefWidth="554.0" style="-fx-border-radius: 10; -fx-border-style: solid; -fx-border-color: #F2D711; -fx-border-width: 2;" />
+            <FlowPane fx:id="playersRow" alignment="CENTER_LEFT" layoutX="122.0" layoutY="372.0" prefHeight="161.0" prefWidth="554.0" style="-fx-border-radius: 10; -fx-border-style: solid; -fx-border-color: #F2D711; -fx-border-width: 2;" />
+            <Button fx:id="stayBtn" disable="true" layoutX="700.0" layoutY="453.0" mnemonicParsing="false" onAction="#stay" prefHeight="69.0" prefWidth="84.0" style="-fx-background-image: url('https://d30y9cdsu7xlg0.cloudfront.net/png/576680-200.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-background-size: 65; -fx-background-radius: 20; -fx-background-color: rgba(0,0,0,0.08),        linear-gradient(#5a61af, #51536d),        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);;">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow color="#323030" />
+               </effect>
+               <tooltip>
+                  <Tooltip text="Stay">
+                     <font>
+                        <Font name="Gautami" size="54.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button fx:id="hitBtn" disable="true" layoutX="700.0" layoutY="372.0" mnemonicParsing="false" onAction="#hit" prefHeight="69.0" prefWidth="84.0" style="-fx-background-image: url('https://www.shareicon.net/data/2015/09/10/98875_click_512x512.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-background-size: 65; -fx-background-radius: 20; -fx-background-color: rgba(0,0,0,0.08),        linear-gradient(#5a61af, #51536d),        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow color="#323030" />
+               </effect>
+               <tooltip>
+                  <Tooltip text="Hit">
+                     <font>
+                        <Font name="Gautami" size="53.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <VBox alignment="CENTER" layoutX="269.0" layoutY="252.0" prefHeight="120.0" prefWidth="261.0">
+               <children>
+                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#startGame" prefHeight="97.0" prefWidth="176.0" style="-fx-border-radius: 25; -fx-background-radius: 30; -fx-background-color: linear-gradient(#ffd65b, #e68400),        linear-gradient(#ffef84, #f2ba44),        linear-gradient(#ffea6a, #efaa22),        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));" stylesheets="@styles.css" text="Play" textFill="#5e4b2f" wrapText="true">
+                     <font>
+                        <Font name="Impact" size="31.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <Label fx:id="displayBox" alignment="CENTER" contentDisplay="CENTER" layoutX="207.0" layoutY="20.0" prefHeight="60.0" prefWidth="385.0" style="-fx-background-color: linear-gradient(to right, rgba(135,136,146,1) 0%, rgba(125,125,135,1) 50%, rgba(120,120,130,1) 51%, rgba(116,119,129,1) 100%); -fx-background-radius: 30;" text="Welcome To Black Jack" textAlignment="CENTER">
+               <font>
+                  <Font name="Impact" size="37.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.7761904761904762" endY="1.0" startX="0.7523809523809524">
+                     <stops>
+                        <Stop color="#ebd102" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="183.0" fitWidth="193.0" layoutX="-36.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/poker-chips.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" layoutX="14.0" layoutY="378.0" prefHeight="97.0" prefWidth="92.0" style="-fx-border-color: white; -fx-border-radius: 20;">
+               <children>
+                  <Label prefHeight="60.0" prefWidth="72.0" text="Cards Left" textAlignment="CENTER" textFill="#e8e4e4" wrapText="true">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cardsLeftLabel" text="52" textFill="#e8e4e4">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <FlowPane alignment="TOP_CENTER" prefHeight="112.0" prefWidth="837.0" style="-fx-background-image: url('http://img00.deviantart.net/0392/i/2010/149/2/9/metal_texture_by_beyn.jpg'); -fx-border-style: solid; -fx-border-width: 3; -fx-border-color: grey;">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="97.0" prefWidth="166.0" style="-fx-background-image: url('http://www.texturex.com/albums/Metal-Textures/dark%20brushed%20metal%20texture%20steel%20black%20stock%20photo%20scratch%20wallpaper.jpg'); -fx-border-style: solid; -fx-border-width: 3; -fx-border-color: grey;">
+               <children>
+                  <Label text="Player">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                     <textFill>
+                        <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="WHITE" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </textFill>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Total">
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="playersTotal" onInputMethodTextChanged="#checkIfBust" text="0">
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </FlowPane>
+                  <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Score">
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="playersScore" text="0">
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </children>
+               <FlowPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </FlowPane.margin>
+               <effect>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant azimuth="183.14" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="97.0" prefWidth="166.0" style="-fx-background-image: url('http://www.texturex.com/albums/Metal-Textures/dark%20brushed%20metal%20texture%20steel%20black%20stock%20photo%20scratch%20wallpaper.jpg'); -fx-border-style: solid; -fx-border-width: 3; -fx-border-color: grey;">
+               <children>
+                  <Label text="Dealer">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font>
+                     <textFill>
+                        <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="WHITE" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </textFill>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Total">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <Label fx:id="dealersTotal" onInputMethodTextChanged="#checkIfBust" text="0">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </FlowPane>
+                  <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Score">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <Label fx:id="dealersScore" text="0">
+                           <font>
+                              <Font name="Impact" size="18.0" />
+                           </font>
+                           <textFill>
+                              <RadialGradient centerX="0.9277777777777778" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </textFill>
+                           <FlowPane.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </FlowPane.margin>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </children>
+               <effect>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant azimuth="183.14" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </VBox>
+         </children>
+      </FlowPane>
+   </children>
+</VBox>
